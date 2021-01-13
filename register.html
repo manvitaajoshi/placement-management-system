@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+    <link rel="stylesheet" href="{% static 'css/registerstyle.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/student_recruiter.js' %}"></script>
+    <script>
+                $(function () {
+            $('form').on('submit', function () {
+                event.preventDefault();
+                var value = $("input[name=user]:checked").val();
+                switch (value) {
+                    case "student": location.href = 'studentform'; break;
+                    case "recruiter": location.href = 'companyform'; break;
+                }
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+    <!--Navigation Bar-->
+    <div class="contain purple topBotomBordersIn">
+        <a href="{% url 'index' %}">HOME</a>
+        <a href="{% url 'loginform' %}">LOGIN</a>
+    </div>
+    <!--Main content-->
+    <div class="container">
+        <img src="{% static 'images/register_img.jpg' %}">
+        <div class="text-block">
+            <br><br><br>
+            <h1>Register to visit our website...</h1>
+            <br><br><br><br><br>
+            <form>
+                <!--*************************************************************************-->
+                <div class="container">Are you a:&nbsp;&nbsp;<br><br>
+                    <input type="radio" id="student" value="student" name="user">
+                    <label for="student">Student</label> &nbsp;&nbsp;
+                    <input type="radio" id="company" value="recruiter" name="user">
+                    <label for="company">Recruiter</label><br><br>
+                </div>
+                <a href="#"><button>Register</button></a>
+
+            </form>
+            <p><br>Already have an account?<br><br>
+                <button><a href="{% url 'loginform' %}">Login</a></button></p>
+        </div>
+    </div>
+</body>
+</html>
+<!--<input type="submit" value="Register"><br><br>-->

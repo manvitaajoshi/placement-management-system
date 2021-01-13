@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+<script src="https://kit.fontawesome.com/ab6caf2d21.js" crossorigin="anonymous"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Set menu vertical position */
+  align-items: center;  /*Set menu horizontal position */
+  background: #c4c4ff;
+}
+
+.hire{
+  font-family: 'Kaushan Script', cursive;
+  font-size: 100px;
+  color: black;
+  text-align: center;
+  font-weight: 1000;
+  padding-top: 30px;
+  padding-bottom: 0px;
+}
+
+h1{
+color:black;
+text-align:center;
+}
+
+p{
+font-size: 25px;
+color: black;
+text-align:center;
+}
+.main_container {
+  width: 1000px;
+  height: 150px;
+  border: 3px solid white;
+  border-radius: 6px;
+  background: rgb(225, 225, 225);
+  perspective: 1000px;
+  transition: width 1200ms cubic-bezier(0.5, 0, 0, 1.5);
+}
+a{
+color:black;
+}
+a:link{
+text-decoration:none;
+}
+a:hover{
+color: #6262ff;
+}
+.menu {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom:55px;
+  display: flex;
+  background-color:white;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: 0.2 width 700ms ease;
+}
+
+.menu_element {
+  width: 60px;
+  height: 460px;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+menu_element a:link{
+  text-decoration: none;
+}
+menu_element a:hover{
+text-decoration : underline;
+}
+
+footer{
+width:100%;
+display: block;
+    text-align: center;
+    background-color:  black;
+    color:  #f0f0f0;
+    padding-top: 90px;
+    padding-bottom: 70px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0;
+    font-size: 1.3em;
+}
+footer a{
+color: white;
+}
+footer a:hover{
+ color: #ffff00;
+}
+.side{
+position:absolute;
+   top:0;
+   font-family: 'Ubuntu', cursive;
+   right:0;
+   padding-top: 30px;
+   padding-right:20px;
+   font-size: 20px;
+}
+
+.side button{
+font-family: 'Ubuntu', cursive;
+background-color:black;
+color:white;
+font-size:20px;
+padding:10px 15px 10px 15px;
+}
+.side button:hover{
+color:#c4c4ff;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="side">
+       <a href="{% url 'student_profile' %}"> <button>{{ user.username }}</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'logout_user' %}"> <button>Log out</button></a>
+</div>
+<a href="{% url 'index' %}"><div class="hire">@HIRE</div></a>
+    </div>
+<br><br>
+<p> We welcome you to @HIRE!<br><br>
+    The youth is eager for amazing opportunities and you can help them.<br>
+<br> Choose what to view.</p><br><br>
+<div class="main_container">
+    <div class="menu">
+        <div class="menu_element menu_option">
+                    <a href="{% url 'selected_for_student' %}"><br><br><br>PROGRESS<br></a>
+            </div>
+            <div class="menu_element menu_option">
+                    <a href="{% url 'applied_for_student' %}"><br><br><br>MY APPLICATION<br></a>
+            </div>
+
+            <div class="menu_element menu_option">
+                 <a href="{% url 'view_job_for_student' %}"><br><br><br>JOBS<br></a>
+            </div>
+
+    </div>
+</div>
+<br><br><br><br>
+     <footer>
+                Copyright &nbsp; &copy;2020&nbsp;&nbsp; @HIRE <br><br>
+            <a><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  &nbsp; &nbsp;
+            <a><i class="fa fa-linkedin" aria-hidden="true"></i></a>  &nbsp; &nbsp;
+                <a><i class="fa fa-facebook" aria-hidden="true"></i></a> &nbsp; &nbsp;
+                <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </footer>
+</body>
+</html>

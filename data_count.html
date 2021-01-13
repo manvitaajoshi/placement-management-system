@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@HIRE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+        html,
+        body {
+            background-color: #c4c4ff;
+            font-family: 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        h1{
+            font-family: 'Kaushan Script', sans-serif;
+            font-size: 70px;
+        }
+
+
+
+
+        button {
+            width: 10%;
+            background-color: black;
+            color: #c4c4ff;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: black;
+            background-color: #c4c4ff;
+            border: 2px solid black;
+        }
+        a:hover
+        {
+            color: black;
+        }
+
+        .container {
+            width: 100%;
+            position: relative;
+        }
+        a{
+            text-decoration: none;
+            color: #c4c4ff;
+        }
+
+        p{
+            font-size: 20px;
+        }
+
+        .text-block {
+            width: 1000px;
+            top: 130px;
+            left: 140px;
+            position: relative;
+            z-index: 10;
+
+        }
+        table {
+  border-collapse: collapse;
+}
+.tbl{
+padding:15px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+    th, td {
+  padding: 15px;
+  text-align: center;
+}
+th{
+    font-weight: 900;
+}
+    </style>
+</head>
+<body>
+    <h1>@HIRE</h1>
+    <p>Following is the data regarding the number of users on @HIRE</p><br><br>
+    <p>Number of students registered : {{ student }}</p><br><br>
+    <p>Number of students applied for a job : {{ apply }}</p><br><br>
+    <p>Number of students selected for a job : {{ select }}</p><br><br>
+    <p>Number of companies registered : {{ company }}</p><br><br>
+    <p>Number of jobs offered in all : {{ job }}</p><br><br>
+    <h3>Top 5 Students : </h3><br><br>
+    <div class="tbl">
+    <table border="10" width="100%" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>College Name</th>
+            <th>College Degree</th>
+            <th>CGPA</th>
+            <th>Gender</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.admin.first_name }} {{ s.admin.last_name }}</td>
+            <td>{{ s.college_name }}</td>
+            <td>{{ s.college_degree }}</td>
+            <td>{{ s.cgpa }}</td>
+            <td>{{ s.gender }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <br>
+    <h3>Top 5 Companies:</h3><br><br>
+    <div class="tbl">
+    <table border="10" width="100%" cellpadding="10">
+        <tr>
+            <th>Company Name</th>
+            <th>Sector</th>
+            <th>Rank</th>
+        </tr>
+        {% for c in companies %}
+        <tr>
+            <td>{{ c.company_name }}</td>
+            <td>{{ c.sector }}</td>
+            <td>{{ c.world_rank }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <br>
+    <button>
+        <a href="{% url 'admin_base_page' %}">Back</a>
+    </button></a>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <title>@HIRE</title>
+        <link rel="stylesheet" href="{% static 'css/mainpagestyle.css' %}">
+        <script src="https://kit.fontawesome.com/ab6caf2d21.js" crossorigin="anonymous"></script>
+    </head>
+
+
+    <body>
+        <!--NAVIGATION BAR-->
+            <div class="contain indigo topLeftBorders">
+                <div class="hire">@HIRE</div><br>
+                <a>HOME</a>
+                <div class="dropdown">
+                    <a>CREATORS</a>
+                    <div class="dropbtn"></div>
+                    <div class="dropdown-content">
+                        <a href="#">2019130027 Manvita Joshi</a>
+                        <a href="#">2019130031 Traividya Korgaonkar</a>
+                        <a href="#">2019130035 Chetashri Mahajan</a>
+                    </div>
+                </div>
+                <a href="{% url 'loginform' %}">LOGIN</a>
+                <a href="{% url 'register' %}">REGISTER</a>
+            </div>
+
+            <!--MAIN BODY OF THE PAGE-->
+            <div class="container">
+                <img class="girlimg" src="{% static 'images/mainpage_img.jpg' %}">
+                <div class="bottom-left">@HIRE</div>
+                <h2>Aim. Target. Hire</h2>
+                <h2>-YOUR DREAM, OUR ACADEME-</h2>
+                <div class="content">
+                    <div class="one">
+                        <div class="two">
+                            <h1>Who are we?</h1><br>
+                            <p>We are a community striving to help students bag
+                                their dream job. You’ve just got some skills to
+                                master and an interview to ace. Rest everything is
+                                taken care of by us!</p>
+                        </div>
+                            <img src="{% static 'images/one_main_img.jpg' %}">
+                    </div>
+
+                    <div class="one">
+                        <img src="{% static 'images/two_main_img.jpg' %}">
+                        <div class="two">
+                            <h1><b>What do we do?</b></h1>
+                            <p>Through this portal, we offer a platform to the
+                                students to get the job they deserve and to the
+                                companies to get the employees they need.</p>
+                        </div>
+                    </div>
+
+                    <div class="one">
+                        <div class="two">
+                            <h1>Can you trust us?</h1>
+                            <p>Definitely yes! All your information remains safe
+                                with us and the information which goes to the
+                                company stays as relevant as possible.</p>
+                        </div>
+                        <img src="{% static 'images/three_main_img.jpg' %}">
+                    </div>
+
+                    <p class="loginask">Do you think you are the perfect fit for the job you
+                        are manifesting?<br>Signup to know!
+                    <div style="text-align:center;">
+                        <button><a href="{% url 'register' %}">Register</a></button><br><br>
+                    </div></p>
+                </div>
+            </div>
+            </div>
+
+            <!--FOOTER-->
+            <footer>
+                Copyright &nbsp; &copy;2020&nbsp;&nbsp; @HIRE <br><br>
+            <a><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  &nbsp; &nbsp;
+            <a><i class="fa fa-linkedin" aria-hidden="true"></i></a>  &nbsp; &nbsp;
+                <a><i class="fa fa-facebook" aria-hidden="true"></i></a> &nbsp; &nbsp;
+                <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </footer>
+    </body>
+
+</html>

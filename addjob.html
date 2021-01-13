@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+    <link rel="stylesheet" href="{% static 'css/addjobstyle.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <img src="{% static 'images/addjob_img.jpg' %}">
+        <div class="text-block">
+            <h1>Add Jobs Available in Your Company:</h1><br><br>
+            <form action="do_add_job" method="post">
+                {% csrf_token %}
+                {% for company in companies %}
+                {% if user.id == company.admin_id %}
+                <label for="cid">Enter Company ID</label><br><br>
+                <input type="number" id="cid" name="cid" value="{{ company.company_id }}"><br><br>
+                {% endif %}
+                {% endfor %}
+
+                <label for="position">Position</label><br><br>
+                <input type="text" id="position" name="position"><br><br>
+
+                <label for="vacancy">Vacancy</label><br><br>
+                <input type="number" id="vacancy" name="vacancy"><br><br>
+
+                <label for="exp_level">Required Experience Level</label><br><br>
+                <select style = "width: 35%; height:45px;" id="exp_level" name="level">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                </select><br><br>
+
+                <label for="min_sal">Minimum Salary Offered</label><br><br>
+                <input type="number" step="0.01" id="min_sal" name="min_sal"><br><br>
+
+                <label for="avg_sal">Average Salary Offered</label><br><br>
+                <input type="number" step="0.01" id="avg_sal" name="avg_sal"><br><br>
+
+                <label for="max_sal">Maximum Salary Offered</label><br><br>
+                <input type="number" step="0.01" id="max_sal" name="max_sal"><br><br>
+
+                <label for="skills">Skills Required</label><br><br>
+                <input type="text" id="skills" name="skills"><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

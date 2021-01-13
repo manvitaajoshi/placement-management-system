@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+        html,
+        body {
+            background-color: blanchedalmond;
+            font-family: 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-weight: 900;
+        }
+
+
+button{
+    width: 10%;
+    background-color: #00003d;
+    color:#ffff00;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+button:hover, input[type=submit]:hover {
+  color: #f0f0f0;
+}
+
+        .container {
+            width: 100%;
+            position: relative;
+        }
+
+        .text-block {
+            width: 1000px;
+            top: 130px;
+            left: 140px;
+            position: relative;
+            z-index: 10;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-block">
+            <p>Oops!<br>Looks like you entered a wrong username or password.<br>
+                Try logging in again</p>
+            <a href="{% url 'loginform' %}">
+                <div class=".btn"><button>Login</button></div>
+            </a></p><br><br>
+            <p>If you have not registered, register first.</p>
+            <a href="{% url 'register' %}">
+                <div class=".btn"><button>Register</button></div>
+            </a></p>
+        </div>
+    </div>
+</body>
+
+</html>

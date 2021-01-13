@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+body{
+background:#eff4ff;
+margin:0;
+}
+div.contain
+{
+    font-family: Raleway;
+    margin: 0 auto;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+div.contain a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+div.topBotomBordersIn a:before, div.topBotomBordersIn a:after
+{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #FFF;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+.purple{
+  background-color: #00004c;
+}
+div.topBotomBordersIn a:before
+{
+    top: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersIn a:after
+{
+    bottom: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersIn a:hover:before, div.topBotomBordersIn a:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+    th, td {
+  padding: 15px;
+  text-align: center;
+}
+.hire{
+color:white;
+float:left;
+font-family: 'Kaushan Script', cursive;
+font-size: 50px;
+padding:20px;
+}
+.hire a{
+color: white;
+
+}
+.hire a:link{
+text-decoration: none;
+}
+h1{
+text-align:center;
+font-family: 'Kaushan Script', cursive;
+}
+.tbl{
+padding:10px;
+}
+</style>
+</head>
+<body>
+<div class="hire"><a href="{% url 'index' %}">@HIRE</a></div>
+<div class="contain purple topBotomBordersIn">
+        <a href="{% url 'student_base_page' %}">HOME</a>
+        <a href="{% url 'selected_for_student' %}">PROGRESS</a>
+        <a href="{% url 'view_job_for_student' %}">JOBS</a>
+        <a href="{% url 'logout_user' %}">LOGOUT</a>
+    </div><br><br>
+<div  class="tbl">
+<table border="10" width="100%" cellpadding="10">
+    <tr>
+        <th>Company ID</th>
+        <th>Company Name</th>
+        <th>Position</th>
+        <th>Applied Date and Time</th>
+        <th>Status</th>
+    </tr>
+{% for apply in applied %}
+    <tr>
+        {% for student in students %}
+        {% if user.id == student.admin_id %}
+        {% if apply.student_id_id == student.student_id %}
+        {% for company in companies %}
+        {% if apply.company_id_id == company.company_id %}
+        <td>{{ company.company_id }}</td>
+        <td>{{ company.company_name }}</td>
+
+        <td>{{ apply.position }}</td>
+        <td>{{ apply.date }}</td>
+        {% if apply.status != "selected" and apply.status != "rejected" %}
+        <td></td>
+        {% else %}
+        {% if apply.status == "selected" %}
+        <td><p style="color:green">{{ apply.status }}</p> </td>
+        {% endif %}
+        {%  if apply.status == "rejected" %}
+        <td><p style="color:red">{{ apply.status }}</p> </td>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+</div>
+</body>
+</html>

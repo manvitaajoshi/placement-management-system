@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>@HIRE</title>
+        <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+    </head>
+    <body>
+        <!--NAVIGATION BAR-->
+        <div class="contain brown highlightTextOut">
+            <a href="{% url 'index' %}" alt="HOME">HOME</a>
+            <a href="{% url 'register' %}" alt="REGISTER">REGISTER</a>
+        </div>
+        <!--MAIN CONTENT-->
+        <div class="container">
+            <img src="{% static 'images/login_img.jpg' %}">
+            <div class="text-block">
+                <h1>Login to our website...</h1>
+                <form action="do_login" method="post">
+                    {% csrf_token %}
+                    <label for="user" class="x">Enter Username</label><br>
+                    <input type="text" id="user" name="user"><br><br>
+                    <label for="password" class="x">Enter Password</label><br>
+                    <input type="password" id="password" name="password"><br><br>
+                    <input type="submit" value="Login"><br><br>
+                    <p><br>
+                </form>
+                Don't have an account?<br><br>
+                <div class=".btn">
+                <a href="{% url 'register' %}"><button>Register</button></a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+body,html{
+    padding: 0;
+    margin: 0;
+}
+        .tbl {
+            padding-left: 200px;
+            padding-right: 200px;
+            ;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        h1 {
+            font-family: 'Ubuntu', sans-serif;
+            text-align: center;
+        }
+        div.contain
+{
+    font-family: Raleway;
+    margin: 0 auto;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+div.contain a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+div.topBotomBordersIn a:before, div.topBotomBordersIn a:after
+{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #FFF;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+.purple{
+  background-color: #00004c;
+}
+div.topBotomBordersIn a:before
+{
+    top: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersIn a:after
+{
+    bottom: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersIn a:hover:before, div.topBotomBordersIn a:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+button{
+    width: 20%;
+    background-color: #ffffff;
+    color:#ffff00;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 1000;
+}
+
+button:hover {
+  color: #f0f0f0;
+}
+.btns
+{
+    text-align: center;
+}
+.btns a{
+    text-decoration: none;
+}
+.btns button{
+    background-color: #00004c;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+    </style>
+</head>
+
+
+<body>
+    <div class="contain purple topBotomBordersIn">
+        <a href="{% url 'company_base_page' %}">HOME</a>
+    </div>
+    {% for company in companies %}
+    {% if user.id == company.admin_id %}
+    <br><br>
+    <h1>Your Details: </h1><br><br>
+    <div class="tbl">
+        <table border="10" width="100%" cellpadding="10">
+            <tr>
+                <th>Field</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Id</td>
+                <td>{{ company.company_id }}</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td>Company Name</td>
+                <td>{{ company.company_name }}</td>
+            </tr>
+            <tr>
+                <td>Company Sector</td>
+                <td>{{ company.sector }}</td>
+            </tr>
+            <tr>
+                <td>World Rank</td>
+                <td>{{ company.world_rank }}</td>
+            </tr>
+            <tr>
+                <td>HeadQuarter City</td>
+                <td>{{ company.city }}</td>
+            </tr>
+            <tr>
+                <td>HeadQuarter State</td>
+                <td>{{ company.state }}</td>
+            </tr>
+            <tr>
+                <td>HeadQuarter Pincode</td>
+                <td>{{ company.pin_code }}</td>
+            </tr>
+            <tr>
+                <td>Contact No.</td>
+                <td>{{ company.contact_no }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ company.admin.email }}</td>
+            </tr>
+            <tr>
+                <td>Mode of Work</td>
+                <td>{{ company.mode }}</td>
+            </tr>
+            <tr>
+                <td>Weekly Off</td>
+                <td>{{ company.weekly_off }}</td>
+            </tr>
+            <tr>
+                <td>Working_Hours</td>
+                <td>{{ company.working_hours }}</td>
+            </tr>
+            <tr>
+                <td>Sick Leaves</td>
+                <td>{{ company.sick_leaves }}</td>
+            </tr>
+
+        </table>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+<br><br><br>
+    <div class="btns">
+        <a href="{% url 'edit_company_profile' %}"><button>Edit Profile</button></a>
+        <a href="{% url 'delete_company' id=user.id  %}"><button>Delete Profile</button></a>
+    </div>
+    <br><br><br>
+</body>
+
+</html>

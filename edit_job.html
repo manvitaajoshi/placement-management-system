@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@HIRE</title>
+    <link rel="stylesheet" href="{% static 'css/addjobstyle.css' %}">
+    <style>
+    button{
+    width: 10%;
+    background-color: #eff4ff;
+    color:#ffff00;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 1000;
+}
+
+button:hover {
+  color: #f0f0f0;
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="{% static 'images/addjob_img.jpg' %}">
+        <div class="text-block">
+            <h1>Edit Jobs:</h1><br><br>
+            <form action="/save_edit_job" method="post">
+                {% csrf_token %}
+                {% for company in companies %}
+                {% if user.id == company.admin_id %}
+
+                <input type="hidden" id="id" name="id" value="{{ job.id }}">
+                <label for="position">Position</label><br><br>
+                <input type="text" id="position" name="position" value="{{ job.position }}"><br><br>
+
+                <label for="vacancy">Vacancy</label><br><br>
+                <input type="number" id="vacancy" name="vacancy" value="{{ job.vacancy }}"><br><br>
+
+
+                <label for="exp_level">Required Experience Level</label><br><br>
+                <input type="text" id="exp_level" name="level" value="{{ job.experience_level }}"><br><br>
+
+                <label for="min_sal">Minimum Salary Offered</label><br><br>
+                <input type="number" step="0.01" id="min_sal" name="min_sal" value="{{ job.min_salary_LPA }}"><br><br>
+
+                <label for="avg_sal">Average Salary Offered</label><br><br>
+                <input type="number" step="0.01" id="avg_sal" name="avg_sal" value="{{ job.avg_salary_LPA }}"><br><br>
+
+                <label for="max_sal">Maximum Salary Offered</label><br><br>
+                <input type="number" step="0.01" id="max_sal" name="max_sal" value="{{ job.max_salary_LPA }}"><br><br>
+
+                <label for="skills">Skills Required</label><br><br>
+                <input type="text" id="skills" name="skills" value="{{ job.required_skills }}"><br><br>
+                {% endif %}
+                {% endfor %}
+
+                <input type="submit" value="Edit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
