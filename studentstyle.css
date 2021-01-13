@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+html, body{
+    background-color: #f0f0f0;
+    font-family: 'Ubuntu', sans-serif;
+    padding :0px;
+    text-align: center;
+    font-weight: 900;
+}
+
+h1{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    color:  #00003d;
+    text-align: center;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=email], input[type=date] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+input[type=submit]{
+    padding-bottom: 12px;
+    padding-top: 12px;
+    width:10%;
+}
+
+button{
+    width: 10%;
+    background-color: #00003d;
+    color:#ffff00;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+button:hover {
+  color: #f0f0f0;
+}
+
+.container {
+  width: 100%;
+  position:relative;
+}
+
+.container img{
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+  width: 100%;
+  opacity: 0.2;
+}
+
+/* Bottom right text */
+.text-block {
+  width: 1000px;
+  top:30px;
+  left:140px;
+  position:relative;
+  z-index:10;
+
+}

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+html, body{
+    background-color: #f0f0f0;
+    font-family: 'Ubuntu', sans-serif;
+    padding:0;
+    margin: 0;
+    text-align: center;
+    font-weight: 900;
+}
+
+/*NAVBAR*/
+
+div.contain
+{
+    font-family: Raleway;
+    margin: 0 auto;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+div.contain a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+div.topBotomBordersIn a:before, div.topBotomBordersIn a:after
+{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #FFF;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+.purple{
+  background-color: #00004c;
+}
+div.topBotomBordersIn a:before
+{
+    top: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersIn a:after
+{
+    bottom: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersIn a:hover:before, div.topBotomBordersIn a:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/*MAIN BODY*/
+
+h1{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    color:  #00003d;
+    text-align: center;
+}
+
+
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+.content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a{
+  color: #ffff00;
+}
+a:hover{
+  color: #f0f0f0;
+}
+a:link{
+  text-decoration: none;
+}
+button{
+    width: 10%;
+    background-color: #00003d;
+    color:#ffff00;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+  color: #f0f0f0;
+}
+
+.container {
+  width: 100%;
+  position:relative;
+}
+
+.container img{
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+  width: 100%;
+  opacity: 0.25;
+}
+
+.text-block {
+  width: 1000px;
+  top:30px;
+  left:140px;
+  position:relative;
+  z-index:10;
+}
+
